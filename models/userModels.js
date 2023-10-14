@@ -1,6 +1,5 @@
 const {DataTypes} = require('sequelize');
-
-import db from '../db';
+const db = require('../db');
 
 //Define o modelo 'user' com os campos 'nome' e 'email'
 const user = db.define('user', {

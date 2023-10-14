@@ -1,14 +1,17 @@
 //Server
 const express = require('express');
-const route = require('./routes');
-const bodyParser = require('body-parser');
-const database = require('./db');
 const app = express();
 
-app.use(bodyParser.urlencoded({extended:true})); //Usa o middleware bodyParser para analisar corpos de solicitação
-app.use(route); //Usa as rotas definidas no arquivo 'routes'
+const bodyParser = require('body-parser'); //Middleware para analisar corpos de solicitação
+const database = require('./db');
+const route = require('./routes');
 
 const PORT = 3001;
+
+app.use(bodyParser.urlencoded({extended:true})); //Usa o middleware bodyParser para analisar corpos de solicitação
+app.use(express.json());
+app.use(route); //Usa as rotas definidas no arquivo 'routes'
+
 database.sync()
     .then(() => {
         console.log('Tabela sincronizada com sucesso');
