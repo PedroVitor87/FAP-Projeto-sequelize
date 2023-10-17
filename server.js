@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 
+const ejs = require('ejs');
 const bodyParser = require('body-parser'); //Middleware para analisar corpos de solicitação
 const database = require('./db');
 const route = require('./routes');
@@ -11,6 +12,8 @@ const PORT = 3001;
 app.use(bodyParser.urlencoded({extended:true})); //Usa o middleware bodyParser para analisar corpos de solicitação
 app.use(express.json());
 app.use(route); //Usa as rotas definidas no arquivo 'routes'
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 database.sync()
     .then(() => {
@@ -22,4 +25,5 @@ database.sync()
     })
     .catch((error) => {
         console.error('Erro ao sincronizar tabela:', error);
-    }); 
+    });
+

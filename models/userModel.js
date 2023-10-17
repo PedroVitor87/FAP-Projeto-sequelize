@@ -3,13 +3,18 @@ const db = require('../db');
 
 //Define o modelo 'user' com os campos 'nome' e 'email'
 const user = db.define('user', {
-    nome: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false //Não permite valores nulos
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false //Não permite valores nulos
+        allowNull: false,
+        unique: true
+    },
+    age: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }); //Nome da tabela e atributos
 
