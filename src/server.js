@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(route); //Usa as rotas definidas no arquivo 'routes'
 app.set('view engine', 'ejs');
 app.set('views', 'src/views');
+app.use(express.static('public'));
 
 database.sync()
     .then(() => {

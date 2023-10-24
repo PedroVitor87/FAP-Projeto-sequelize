@@ -15,7 +15,7 @@ const createUser = async (req, res) => {
     try {
         const {name, email, age} = req.body; 
         const newUser = await User.create({name, email, age});
-        res.status(201).json({message: "Usuário cadastrado com sucesso", user: newUser });
+        res.redirect("/usuarios");
     } catch (error) {
         res.status(500).json({error: error.message});
     };
