@@ -13,4 +13,4 @@ try {
     console.log("Erro", error);
 }
 
-module.exports = sequelize
+module.exports = sequelize;

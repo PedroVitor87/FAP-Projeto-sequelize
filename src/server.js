@@ -4,7 +4,7 @@ const app = express();
 
 const ejs = require('ejs');
 const bodyParser = require('body-parser'); //Middleware para analisar corpos de solicitação
-const database = require('./db/db');
+const database = require('./data/db');
 const route = require('./routes/routes');
 
 const PORT = 3001;
@@ -26,4 +26,3 @@ database.sync()
     .catch((error) => {
         console.error('Erro ao sincronizar tabela:', error);
     });
-

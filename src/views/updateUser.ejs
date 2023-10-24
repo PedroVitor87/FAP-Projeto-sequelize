@@ -1,4 +1,4 @@
-<!-- Formulário para atualizar usuários -->
+<!-- updateUser.ejs -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,14 +9,23 @@
 <body>
     <h1>Atualizar Usuário</h1>
     <form action="/usuarios/atualizar/<%= user.id %>" method="post">
-        <label for="name">Novo Nome:</label>
-        <input type="text" id="name" name="name" value="<%= user.name %>"><br>
+        <!-- Campo para entrada de novos dados -->
+        <label for="newName">Novo Nome:</label>
+        <input type="text" id="newName" name="name" placeholder="Digite o novo nome"><br>
 
-        <label for="email">Novo Email:</label>
-        <input type="text" id="email" name="email" value="<%= user.email %>"><br>
+        <label for="newEmail">Novo Email:</label>
+        <input type="text" id="newEmail" name="email" placeholder="Digite o novo email"><br>
 
-        <label for="age">Nova Idade:</label>
-        <input type="number" id="age" name="age" value="<%= user.age %>"><br>
+        <label for="newAge">Nova Idade:</label>
+        <input type="number" id="newAge" name="age" placeholder="Digite a nova idade"><br>
+
+        <!-- Campo que exibe os dados existentes -->
+        <label for="existingData">Dados Existentes:</label>
+        <div id="existingData">
+            Nome: <%= user.name %><br>
+            Email: <%= user.email %><br>
+            Idade: <%= user.age %> anos
+        </div>
 
         <button type="submit">Atualizar</button>
     </form>
